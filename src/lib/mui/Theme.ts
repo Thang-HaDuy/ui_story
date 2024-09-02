@@ -39,6 +39,22 @@ const theme = createTheme({
                 },
             },
         },
+        MuiCssBaseline: {
+            styleOverrides: {
+                html: {
+                    '& ::-webkit-scrollbar': {
+                        width: '5px',
+                    },
+                    '& ::-webkit-scrollbar-track': {
+                        backgroundColor: '#0f1416',
+                    },
+                    '& ::-webkit-scrollbar-thumb': {
+                        backgroundColor: 'red',
+                    },
+                    '& ::-webkit-scrollbar-thumb:hover': {},
+                },
+            },
+        },
     },
 
     breakpoints: {
