@@ -6,53 +6,53 @@ import MenuDropDown from '@/components/ui/header/items/menu/MenuDropDown';
 import { Item } from '@/components/ui/header/items/menu/ItemDropdown';
 
 export const topAnime: Item[] = [
-    { href: 'day.html', text: 'Theo Ngày' },
-    { href: 'seasion.html', text: 'Theo Mùa' },
-    { href: 'year.html', text: 'Theo Năm' },
-    { href: 'month.html', text: 'Theo Tháng' },
-    { href: 'voied.html', text: 'Yêu Thích' },
+    { href: '/top-anime/day', text: 'Theo Ngày' },
+    { href: '/top-anime/season', text: 'Theo Mùa' },
+    { href: '/top-anime/year', text: 'Theo Năm' },
+    { href: '/top-anime/month', text: 'Theo Tháng' },
+    { href: '/top-anime/voied', text: 'Yêu Thích' },
 ];
 export const theLoai: Item[] = [
-    { href: '/category/action', text: 'Action' },
-    { href: '/category/action', text: 'Adventure' },
-    { href: '/category/action', text: 'Cartoon' },
-    { href: '/category/action', text: 'Comedy' },
-    { href: '/category/action', text: 'Dementia' },
-    { href: '/category/action', text: 'Demons' },
-    { href: '/category/action', text: 'Drama' },
-    { href: '/category/action', text: 'Ecchi' },
-    { href: '/category/action', text: 'Fantasy' },
-    { href: '/category/action', text: 'Game' },
-    { href: '/category/action', text: 'Harem' },
-    { href: '/category/action', text: 'Historical' },
-    { href: '/category/action', text: 'Horror' },
-    { href: '/category/action', text: 'Josei' },
-    { href: '/category/action', text: 'Kids' },
-    { href: '/category/action', text: 'Magic' },
-    { href: '/category/action', text: 'Mecha' },
-    { href: '/category/action', text: 'Military' },
-    { href: '/category/action', text: 'Music' },
-    { href: '/category/action', text: 'Mystery' },
-    { href: '/category/action', text: 'Parody' },
-    { href: '/category/action', text: 'Police' },
-    { href: '/category/action', text: 'Psychological' },
-    { href: '/category/action', text: 'Romance' },
-    { href: '/category/action', text: 'Samurai' },
-    { href: '/category/action', text: 'Shounen' },
+    { href: '/category/Action', text: 'Action' },
+    { href: '/category/Adventure', text: 'Adventure' },
+    { href: '/category/Cartoon', text: 'Cartoon' },
+    { href: '/category/Comedy', text: 'Comedy' },
+    { href: '/category/Dementia', text: 'Dementia' },
+    { href: '/category/Demons', text: 'Demons' },
+    { href: '/category/Drama', text: 'Drama' },
+    { href: '/category/Ecchi', text: 'Ecchi' },
+    { href: '/category/Fantasy', text: 'Fantasy' },
+    { href: '/category/Game', text: 'Game' },
+    { href: '/category/Harem', text: 'Harem' },
+    { href: '/category/Historical', text: 'Historical' },
+    { href: '/category/Horror', text: 'Horror' },
+    { href: '/category/Josei', text: 'Josei' },
+    { href: '/category/Kids', text: 'Kids' },
+    { href: '/category/Magic', text: 'Magic' },
+    { href: '/category/Mecha', text: 'Mecha' },
+    { href: '/category/Military', text: 'Military' },
+    { href: '/category/Music', text: 'Music' },
+    { href: '/category/Mystery', text: 'Mystery' },
+    { href: '/category/Parody', text: 'Parody' },
+    { href: '/category/Police', text: 'Police' },
+    { href: '/category/Psychological', text: 'Psychological' },
+    { href: '/category/Romance', text: 'Romance' },
+    { href: '/category/Samurai', text: 'Samurai' },
+    { href: '/category/Shounen', text: 'Shounen' },
 ];
-export const seasion: Item[] = [
-    { href: 'day.html', text: 'Mùa Đông 2024' },
-    { href: 'seasion.html', text: 'Mùa Xuân 2024' },
-    { href: 'year.html', text: 'Mùa Hạ 2024' },
-    { href: 'month.html', text: 'Mùa Thu 2024' },
-    { href: 'voied.html', text: 'Mùa Đông 2023' },
-    { href: 'voied.html', text: 'Mùa Xuân 2023' },
-    { href: 'voied.html', text: 'Mùa Hạ 2023' },
-    { href: 'voied.html', text: 'Mùa Thu 2023' },
-    { href: 'voied.html', text: 'Mùa Thu 2022' },
-    { href: 'voied.html', text: 'Mùa Đông 2022' },
-    { href: 'voied.html', text: 'Mùa Xuân 2022' },
-    { href: 'voied.html', text: 'Mùa Hạ 2022' },
+export const season: Item[] = [
+    { href: '/season/winter/2024', text: 'Mùa Đông 2024' },
+    { href: '/season/spring/2024', text: 'Mùa Xuân 2024' },
+    { href: '/season/summer/2024', text: 'Mùa Hạ 2024' },
+    { href: '/season/autumn/2024', text: 'Mùa Thu 2024' },
+    { href: '/season/winter/2023', text: 'Mùa Đông 2023' },
+    { href: '/season/spring/2023', text: 'Mùa Xuân 2023' },
+    { href: '/season/summer/2023', text: 'Mùa Hạ 2023' },
+    { href: '/season/autumn/2023', text: 'Mùa Thu 2023' },
+    { href: '/season/autumn/2022', text: 'Mùa Thu 2022' },
+    { href: '/season/winter/2022', text: 'Mùa Đông 2022' },
+    { href: '/season/spring/2022', text: 'Mùa Xuân 2022' },
+    { href: '/season/summer/2022', text: 'Mùa Hạ 2022' },
 ];
 
 export const navs: Item[] = [
@@ -72,9 +72,9 @@ const MenuItems = () => {
                     THỂ LOẠI <KeyboardArrowDownIcon sx={{ color: '#b5e745' }} />
                 </Button>
             </MenuDropDown>
-            <MenuDropDown contents={seasion} className="seasion">
+            <MenuDropDown contents={season} className="season">
                 <Button sx={{ color: '#fff', '&:hover': { backgroundColor: 'transparent' } }}>
-                    SEASION <KeyboardArrowDownIcon sx={{ color: '#b5e745' }} />
+                    SEASON <KeyboardArrowDownIcon sx={{ color: '#b5e745' }} />
                 </Button>
             </MenuDropDown>
             {navs.map((nav, index) => (

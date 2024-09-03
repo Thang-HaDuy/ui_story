@@ -1,6 +1,6 @@
 import React from 'react';
 import DrawerDropDown from './DrawerDropDown';
-import { navs, seasion, theLoai, topAnime } from '@/components/ui/header/items/menu/MenuItem';
+import { navs, season, theLoai, topAnime } from '@/components/ui/header/items/menu/MenuItem';
 import Button from '@mui/material/Button';
 import Box from '@mui/material/Box';
 import Link from 'next/link';
@@ -71,11 +71,11 @@ const MenuDrawer: React.FC = () => {
                     TRANG CHỦ
                 </Box>
                 <DrawerDropDown
-                    contents={seasion}
-                    isOpen={openDropdown === 'SEASION'}
-                    onToggle={() => handleToggle('SEASION')}
+                    contents={season}
+                    isOpen={openDropdown === 'SEASON'}
+                    onToggle={() => handleToggle('SEASON')}
                 >
-                    SEASION
+                    SEASON
                 </DrawerDropDown>
                 <DrawerDropDown
                     contents={topAnime}
