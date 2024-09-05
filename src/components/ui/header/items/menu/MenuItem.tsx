@@ -56,8 +56,8 @@ export const season: Item[] = [
 ];
 
 export const navs: Item[] = [
-    { href: 'anime/library/A/', text: 'THƯ VIỆN' },
-    { href: '/lich-chieu-phim.html', text: 'LỊCH CHIẾU' },
+    { href: '/library/0-9/', text: 'THƯ VIỆN' },
+    { href: '/movie-screening-schedule', text: 'LỊCH CHIẾU' },
 ];
 const MenuItems = () => {
     return (

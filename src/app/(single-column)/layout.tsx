@@ -5,7 +5,7 @@ import Announcement from '@/components/ui/navigation/items/announcement/Announce
 
 const MovieLayout = ({ children }: { children: React.ReactNode }) => {
     return (
-        <Container sx={{ padding: { xs: '0', md: '13px 20px' } }}>
+        <Container sx={{ padding: { xs: '0', md: '20px 30px' } }}>
             <Box
                 sx={{
                     backgroundColor: 'background.paper',

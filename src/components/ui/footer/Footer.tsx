@@ -88,7 +88,9 @@ const Footer = () => {
 
     return (
         <Box>
-            <Container sx={{ textAlign: 'center', padding: { xs: '0', md: '24px' } }}>
+            <Container
+                sx={{ textAlign: 'center', paddingBottom: { xs: '0', md: '24px' }, paddingX: { xs: '0', md: '29px' } }}
+            >
                 <Box
                     sx={{
                         display: 'flex',
