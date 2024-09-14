@@ -31,3 +31,30 @@ const HomeLayout = ({ children }: { children: React.ReactNode }) => {
 };
 
 export default HomeLayout;
+
+// const HomeLayout = ({ children }: { children: React.ReactNode }) => {
+//     return (
+//         <Container sx={{ padding: { xs: '0', md: '20px 30px' } }}>
+//             <Box
+//                 sx={{
+//                     backgroundColor: 'background.paper',
+//                     padding: '18px',
+//                 }}
+//             >
+//                 <Navigation />
+//                 <Box
+//                     sx={{
+//                         display: 'flex',
+//                         gap: '20px',
+//                         flexDirection: { xs: 'column', md: 'row' },
+//                     }}
+//                 >
+//                     <Box sx={{ flexGrow: 1, minWidth: 0 }}>{children}</Box>
+//                     <Box sx={{ width: { xs: 'auto', md: '300px' }, flexShrink: 0 }}>
+//                         <Sidebar />
+//                     </Box>
+//                 </Box>
+//             </Box>
+//         </Container>
+//     );
+// };
