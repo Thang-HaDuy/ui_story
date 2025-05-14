@@ -25,7 +25,13 @@ const ButtonMobile = () => {
                 }}
                 onClick={toggleDrawer(true)}
             />
-            <Drawer open={open} onClose={toggleDrawer(false)}>
+            <Drawer
+                open={open}
+                onClose={toggleDrawer(false)}
+                ModalProps={{
+                    keepMounted: true, // để tránh unmount toàn bộ DOM, giữ tốt hơn cho accessibility
+                }}
+            >
                 <MenuDrawer />
             </Drawer>
         </Box>

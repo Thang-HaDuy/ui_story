@@ -1,15 +1,17 @@
-import React from 'react';
+import { useState } from 'react';
 import DrawerDropDown from './DrawerDropDown';
 import { navs, season, theLoai, topAnime } from '@/components/ui/header/items/menu/MenuItem';
 import Button from '@mui/material/Button';
 import Box from '@mui/material/Box';
 import Link from 'next/link';
 import UserDropdown from '@/components/ui/header/items/user/UserDropDown';
+import { useSession } from 'next-auth/react';
 
 const MenuDrawer: React.FC = () => {
-    const [openDropdown, setOpenDropdown] = React.useState<string | null>(null);
+    const [openDropdown, setOpenDropdown] = useState<string | null>(null);
+    const { data: session } = useSession();
 
-    let isLogin: boolean = true;
+    let isLogin: boolean = session != null;
 
     const handleToggle = (dropdownName: string) => {
         setOpenDropdown((prev) => (prev === dropdownName ? null : dropdownName));

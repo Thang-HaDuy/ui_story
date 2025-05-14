@@ -10,9 +10,37 @@ import MenuItem from '@mui/material/MenuItem';
 import Menu from '@mui/material/Menu';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import Tooltip from '@mui/material/Tooltip';
+import { signOut } from 'next-auth/react';
 
 const UserDropdown = () => {
-    const settings = ['Thông tin tài khoản', 'Hộp phim', 'Lịch sử', 'Đăng xuất'];
+    // const settings = ['Thông tin tài khoản', 'Hộp phim', 'Lịch sử', 'Đăng xuất'];
+    const settings = [
+        {
+            title: 'Thông tin tài khoản',
+            func: () => {
+                handleCloseUserMenu();
+            },
+        },
+        {
+            title: 'Hộp phim',
+            func: () => {
+                handleCloseUserMenu();
+            },
+        },
+        {
+            title: 'Lịch sử',
+            func: () => {
+                handleCloseUserMenu();
+            },
+        },
+        {
+            title: 'Đăng xuất',
+            func: () => {
+                handleCloseUserMenu();
+                signOut();
+            },
+        },
+    ];
     const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(null);
 
     const handleOpenUserMenu = (event: React.MouseEvent<HTMLElement>) => {
@@ -51,9 +79,9 @@ const UserDropdown = () => {
                     open={Boolean(anchorElUser)}
                     onClose={handleCloseUserMenu}
                 >
-                    {settings.map((setting) => (
-                        <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                            <Typography textAlign="center">{setting}</Typography>
+                    {settings.map((setting, index) => (
+                        <MenuItem key={index} onClick={setting.func}>
+                            <Typography textAlign="center">{setting.title}</Typography>
                         </MenuItem>
                     ))}
                 </Menu>

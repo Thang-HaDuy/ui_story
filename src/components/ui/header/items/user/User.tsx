@@ -1,11 +1,16 @@
+'use client';
+
 import React from 'react';
 import Button from '@mui/material/Button';
 import Link from 'next/link';
 import UserDropdown from '@/components/ui/header/items/user/UserDropDown';
 import Box from '@mui/material/Box';
+import ROUTES from '@/constants/routes';
+import { useSession } from 'next-auth/react';
 
 const User = () => {
-    const isLogin = false;
+    const { data: session } = useSession();
+    let isLogin: boolean = session != null;
 
     return isLogin ? (
         <Box
@@ -28,7 +33,7 @@ const User = () => {
                 marginLeft: '10px',
             }}
             component={Link}
-            href="/login"
+            href={ROUTES.LOGIN}
         >
             Đăng Nhập
         </Button>

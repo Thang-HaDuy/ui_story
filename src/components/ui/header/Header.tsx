@@ -8,6 +8,7 @@ import MenuItems from '@/components/ui/header/items/menu/MenuItem';
 import User from '@/components/ui/header/items/user/User';
 import Search from '@/components/ui/header/items/search/Search';
 import ButtonMobile from '@/components/ui/header/items/mobile/ButomMobile';
+import ROUTES from '@/constants/routes';
 
 const Header = () => {
     return (
@@ -22,7 +23,7 @@ const Header = () => {
                             marginRight: '2rem',
                         }}
                         component={Link}
-                        href="/"
+                        href={ROUTES.HOME}
                     >
                         <img style={{ width: '100%' }} src="/logoz.webp" alt="My Image" />
                     </Box>
