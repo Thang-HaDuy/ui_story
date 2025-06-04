@@ -5,18 +5,20 @@ import Link from 'next/link';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import ImageMovie from '@/components/ui/shared/ImageMovie';
+import ROUTES from '@/constants/routes';
 
 export interface ITutorialStep {
-    label: string;
-    imgPath: string;
-    text: string;
-    episode: number;
-    rating: number;
+    id: string;
+    name: string;
+    avatar: string;
+    description: string;
+    totalEpisode: number;
+    averageRate: number;
     className: string;
 }
 const MovieItem = ({ step }: { step: ITutorialStep }) => {
     return (
-        <Box component={Link} href={'/'}>
+        <Box component={Link} href={`${ROUTES.MOVIE}/${step.id}`}>
             <Box
                 sx={{
                     marginX: '9.6px',
@@ -26,7 +28,7 @@ const MovieItem = ({ step }: { step: ITutorialStep }) => {
                     },
                 }}
             >
-                <ImageMovie src={step.imgPath} alt={step.label} />
+                <ImageMovie src={step.avatar} alt={step.description} />
                 <Typography
                     sx={{
                         color: '#fff',
@@ -44,10 +46,10 @@ const MovieItem = ({ step }: { step: ITutorialStep }) => {
                         background: 'linear-gradient(to bottom,rgba(0,0,0,0) 0,rgba(0,0,0,.65) 100%)',
                     }}
                 >
-                    {step.text}
+                    {step.description}
                 </Typography>
-                <TotalEpisode episode={step.episode} />
-                <Rating number={step.rating} />
+                <TotalEpisode episode={step.totalEpisode} />
+                <Rating number={step.averageRate} />
                 <SelectHover className={step.className} />
             </Box>
         </Box>

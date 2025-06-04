@@ -11,14 +11,17 @@ import Menu from '@mui/material/Menu';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import Tooltip from '@mui/material/Tooltip';
 import { signOut } from 'next-auth/react';
+import { useRouter } from 'next/navigation';
+import ROUTES from '@/constants/routes';
 
 const UserDropdown = () => {
-    // const settings = ['Thông tin tài khoản', 'Hộp phim', 'Lịch sử', 'Đăng xuất'];
+    const router = useRouter();
     const settings = [
         {
             title: 'Thông tin tài khoản',
             func: () => {
                 handleCloseUserMenu();
+                router.push(ROUTES.ACCOUNT_INFO);
             },
         },
         {

@@ -221,7 +221,7 @@ const AnimeUpdate = () => {
             title="MỚI CẬP NHẬT"
             childrenTitle={
                 <>
-                    {buttonLabels.map((label) => (
+                    {/* {buttonLabels.map((label) => (
                         <Button
                             key={label}
                             onClick={() => handleButtonClick(label)}
@@ -235,7 +235,7 @@ const AnimeUpdate = () => {
                         >
                             {label}
                         </Button>
-                    ))}
+                    ))} */}
                 </>
             }
         >

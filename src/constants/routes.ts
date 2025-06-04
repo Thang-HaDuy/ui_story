@@ -3,6 +3,8 @@ const ROUTES = {
     LOGIN: '/auth/login',
     REGISTER: '/auth/register',
     FORGOT_PASSWORD: '/auth/forgot-password',
+    ACCOUNT_INFO: '/account/info',
+    MOVIE: '/phim',
 };
 
 export default ROUTES;

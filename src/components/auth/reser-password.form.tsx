@@ -15,6 +15,7 @@ import ROUTES from '@/constants/routes';
 import { useSession } from 'next-auth/react';
 import { sendRequest } from '@/utils/api';
 import { useSearchParams, useRouter } from 'next/navigation';
+import { API_BASE_URL, API_ENDPOINTS } from '@/constants/api';
 
 const ResetPasswordForm = () => {
     const [formValues, setFormValues] = useState({ password: '', confirmPassword: '' });
@@ -57,7 +58,7 @@ const ResetPasswordForm = () => {
         try {
             const res = await sendRequest<IBackendRes<ILogin>>({
                 method: 'POST',
-                url: `${process.env.NEXT_PUBLIC_BASE_API}/api/AccountControllerApi/ResetPassword`,
+                url: `${API_BASE_URL}${API_ENDPOINTS.RESET_PASSWORD}`,
                 body: {
                     password: formValues.password,
                     token: token,

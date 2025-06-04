@@ -9,81 +9,12 @@ import KeyboardArrowRight from '@mui/icons-material/KeyboardArrowRight';
 import KeyboardArrowLeft from '@mui/icons-material/KeyboardArrowLeft';
 import MovieItem, { ITutorialStep } from './MovieItem';
 
-const ListMovieTop: React.FC = () => {
-    const tutorialSteps: ITutorialStep[] = [
-        {
-            label: 'San Francisco 10',
-            imgPath: '/02yvy2ix.webp',
-            text: 'Cuộc Sống Thảnh Thơi Tại Dị Giới Gian Lận Của Cựu Ứng',
-            episode: 5,
-            rating: 4.3,
-            className: 'hoverEffect31',
-        },
-        {
-            label: 'San Francisco 10',
-            imgPath: '/02yvy2ix.webp',
-            text: 'Cuộc Sống Thảnh Thơi Tại Dị Giới Gian Lận Của Cựu Ứng',
-            episode: 5,
-            rating: 4.3,
-            className: 'hoverEffect32',
-        },
-        {
-            label: 'San Francisco 10',
-            imgPath: '/02yvy2ix.webp',
-            text: 'Cuộc Sống Thảnh Thơi Tại Dị Giới Gian Lận Của Cựu Ứng',
-            episode: 5,
-            rating: 4.3,
-            className: 'hoverEffect33',
-        },
-        {
-            label: 'San Francisco 10',
-            imgPath: '/02yvy2ix.webp',
-            text: 'Cuộc Sống Thảnh Thơi Tại Dị Giới Gian Lận Của Cựu Ứng',
-            episode: 5,
-            rating: 4.3,
-            className: 'hoverEffect34',
-        },
-        {
-            label: 'San Francisco 10',
-            imgPath: '/02yvy2ix.webp',
-            text: 'Cuộc Sống Thảnh Thơi Tại Dị Giới Gian Lận Của Cựu Ứng',
-            episode: 5,
-            rating: 4.3,
-            className: 'hoverEffect35',
-        },
-        {
-            label: 'San Francisco 10',
-            imgPath: '/02yvy2ix.webp',
-            text: 'Cuộc Sống Thảnh Thơi Tại Dị Giới Gian Lận Của Cựu Ứng',
-            episode: 5,
-            rating: 4.3,
-            className: 'hoverEffect36',
-        },
-        {
-            label: 'San Francisco 10',
-            imgPath: '/02yvy2ix.webp',
-            text: 'Cuộc Sống Thảnh Thơi Tại Dị Giới Gian Lận Của Cựu Ứng',
-            episode: 5,
-            rating: 4.3,
-            className: 'hoverEffect37',
-        },
-        {
-            label: 'San Francisco 10',
-            imgPath: '/02yvy2ix.webp',
-            text: 'Cuộc Sống Thảnh Thơi Tại Dị Giới Gian Lận Của Cựu Ứng',
-            episode: 5,
-            rating: 4.3,
-            className: 'hoverEffect38',
-        },
-        {
-            label: 'San Francisco 10',
-            imgPath: '/02yvy2ix.webp',
-            text: 'Cuộc Sống Thảnh Thơi Tại Dị Giới Gian Lận Của Cựu Ứng',
-            episode: 5,
-            rating: 4.3,
-            className: 'hoverEffect39',
-        },
-    ];
+interface IListMovieTop {
+    tutorialSteps: ITutorialStep[];
+}
+
+const ListMovieTop = (prop: IListMovieTop) => {
+    const { tutorialSteps } = prop;
 
     const breakpoints = {
         150: {

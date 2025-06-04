@@ -2,6 +2,7 @@ import NextAuth from 'next-auth';
 import Credentials from 'next-auth/providers/credentials';
 import { sendRequest } from '@/utils/api';
 import { CustomError } from './auth.config';
+import { API_BASE_URL, API_ENDPOINTS } from '@/constants/api';
 
 export const { handlers, signIn, signOut, auth } = NextAuth({
     providers: [
@@ -19,7 +20,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
                 try {
                     const res = await sendRequest<IBackendRes<ILogin>>({
                         method: 'POST',
-                        url: `${process.env.NEXT_PUBLIC_BASE_API}/api/AccountControllerApi/Login`,
+                        url: `${API_BASE_URL}${API_ENDPOINTS.LOGIN}`,
                         body: {
                             email: credentials.email,
                             password: credentials.password,

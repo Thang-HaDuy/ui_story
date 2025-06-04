@@ -5,13 +5,11 @@ import Typography from '@mui/material/Typography';
 import InputAdornment from '@mui/material/InputAdornment';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
-import EmailIcon from '@mui/icons-material/Email';
 import LockIcon from '@mui/icons-material/Lock';
-import PersonIcon from '@mui/icons-material/Person';
-import Link from 'next/link';
 import { useState } from 'react';
 import CloseIcon from '@mui/icons-material/Close';
 import { sendRequest } from '@/utils/api';
+import { API_BASE_URL, API_ENDPOINTS } from '@/constants/api';
 
 const ForgotPasswordForm = () => {
     const [email, setEmail] = useState('');
@@ -34,11 +32,10 @@ const ForgotPasswordForm = () => {
             setServerError('Vui lòng kiểm tra lại thông tin!');
             return;
         }
-        console.log(email);
         try {
             const res = await sendRequest<IBackendRes<any>>({
                 method: 'POST',
-                url: `${process.env.NEXT_PUBLIC_BASE_API}/api/AccountControllerApi/ForgotPassword`,
+                url: `${API_BASE_URL}${API_ENDPOINTS.FORGOT_PASSWORD}`,
                 body: {
                     email,
                 },

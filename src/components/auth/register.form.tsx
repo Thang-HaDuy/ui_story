@@ -14,6 +14,7 @@ import CloseIcon from '@mui/icons-material/Close';
 import { sendRequest } from '@/utils/api';
 import { signIn } from 'next-auth/react';
 import ROUTES from '@/constants/routes';
+import { API_BASE_URL, API_ENDPOINTS } from '@/constants/api';
 
 const RegisterForm = () => {
     const [formValues, setFormValues] = useState({ email: '', password: '', confirmPassword: '', username: '' });
@@ -53,7 +54,7 @@ const RegisterForm = () => {
         try {
             const res = await sendRequest<IBackendRes<ILogin>>({
                 method: 'POST',
-                url: `${process.env.NEXT_PUBLIC_BASE_API}/api/AccountControllerApi/register`,
+                url: `${API_BASE_URL}${API_ENDPOINTS.REGISTER}`,
                 body: { ...formValues },
             });
             if (res.statusCode == 401) {
