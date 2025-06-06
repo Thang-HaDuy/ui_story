@@ -8,6 +8,7 @@ import IconButton from '@mui/material/IconButton';
 import InputAdornment from '@mui/material/InputAdornment';
 import SearchIcon from '@mui/icons-material/Search';
 import useDebounce from '@/components/ui/header/items/search/component/useDebounce';
+import { API_BASE_URL, API_ENDPOINTS } from '@/constants/api';
 
 const Search = () => {
     const [openSuggest, setOpenSuggest] = React.useState(false);
@@ -24,9 +25,7 @@ const Search = () => {
 
         const fetchApi = async () => {
             try {
-                const response = await fetch(
-                    `${process.env.NEXT_PUBLIC_BASE_API}api/MovieControllerApi/search?query=${debouncedValue}`,
-                );
+                const response = await fetch(`${API_BASE_URL}${API_ENDPOINTS.SEARCH}${debouncedValue}`);
                 if (response.status === 200) {
                     const result: ISuggest[] = await response.json();
                     setSearchResult(result);
@@ -35,7 +34,7 @@ const Search = () => {
                     setSearchResult([]);
                 }
             } catch (error) {
-                console.log(error);
+                setSearchResult([]);
             }
         };
 
@@ -64,7 +63,6 @@ const Search = () => {
 
     const handleOnSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        console.log('submit');
     };
 
     return (

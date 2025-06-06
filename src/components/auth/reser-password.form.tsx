@@ -41,7 +41,6 @@ const ResetPasswordForm = () => {
         e.preventDefault();
         const email = searchParams.get('email');
         const token = searchParams.get('token');
-        console.log(token);
 
         if (Object.values(formErrors).some((error) => error)) {
             setServerError('Vui lòng kiểm tra lại thông tin!');

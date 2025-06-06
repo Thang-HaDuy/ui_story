@@ -6,13 +6,14 @@ import InforList, { IInforItem } from '@/components/ui/shared/InforList';
 import VideocamIcon from '@mui/icons-material/Videocam';
 import MovieIcon from '@mui/icons-material/Movie';
 import PersonIcon from '@mui/icons-material/Person';
+import { GifBoxRounded } from '@mui/icons-material';
 
 export interface IHoverInfor {
     name: string;
     detail: string;
     author: string;
-    categories: string[];
-    performer: string[];
+    categories: string;
+    performer: string;
     info: IInforItem;
 }
 
@@ -110,23 +111,18 @@ const HoverInfor = ({ item, index }: { item: IHoverInfor; index: number }) => {
                 >
                     Thể Loại:
                 </Box>
-                {item.categories.map((category, index) => (
-                    <Box
-                        key={index}
-                        sx={{
-                            fontSize: '12px',
-                            fontWeight: '300',
-                            lineHeight: '22px',
-                            textDecoration: 'none',
-                            color: '#333',
-                            marginRight: '3px',
-                        }}
-                        component={Link}
-                        href={'/'}
-                    >
-                        {category},
-                    </Box>
-                ))}
+                <Box
+                    sx={{
+                        fontSize: '12px',
+                        fontWeight: '300',
+                        lineHeight: '22px',
+                        textDecoration: 'none',
+                        color: '#333',
+                        marginRight: '3px',
+                    }}
+                >
+                    {item.categories},
+                </Box>
             </Box>
             <Box
                 sx={{
@@ -151,23 +147,18 @@ const HoverInfor = ({ item, index }: { item: IHoverInfor; index: number }) => {
                 >
                     Diễn viên:
                 </Box>
-                {item.performer.map((per, index) => (
-                    <Box
-                        key={index}
-                        sx={{
-                            fontSize: '12px',
-                            fontWeight: '300',
-                            lineHeight: '22px',
-                            textDecoration: 'none',
-                            color: '#333',
-                            marginRight: '3px',
-                        }}
-                        component={Link}
-                        href={'/'}
-                    >
-                        {per},
-                    </Box>
-                ))}
+                <GifBoxRounded
+                    sx={{
+                        fontSize: '12px',
+                        fontWeight: '300',
+                        lineHeight: '22px',
+                        textDecoration: 'none',
+                        color: '#333',
+                        marginRight: '3px',
+                    }}
+                >
+                    {item.performer},
+                </GifBoxRounded>
             </Box>
         </Box>
     );

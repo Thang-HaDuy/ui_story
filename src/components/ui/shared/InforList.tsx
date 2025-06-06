@@ -5,16 +5,14 @@ import AccessTimeIcon from '@mui/icons-material/AccessTime';
 import DateRangeIcon from '@mui/icons-material/DateRange';
 
 export interface IInforItem {
-    rating: number;
-    date: string;
+    rate: number;
+    createdAt: string;
     quality: string;
-    period: string;
-    color: string;
+    episode: string;
 }
 
 const InforList = ({ item }: { item: IInforItem }) => {
-    const [datePart] = item.date.split(' ');
-    const [year] = datePart.split('-');
+    const [year] = item.createdAt.split('-');
 
     return (
         <Box sx={{ display: 'flex', alignItems: 'center', paddingBottom: '6.4px' }}>
@@ -28,7 +26,7 @@ const InforList = ({ item }: { item: IInforItem }) => {
                 }}
             >
                 <StarIcon sx={{ fontSize: '14px', marginRight: '4px' }} />
-                {item.rating}
+                {item.rate}
             </Typography>
             <Typography
                 sx={{
@@ -36,11 +34,11 @@ const InforList = ({ item }: { item: IInforItem }) => {
                     display: 'flex',
                     alignItems: 'center',
                     marginRight: '8px',
-                    color: item.color,
+                    color: '#fff',
                 }}
             >
                 <AccessTimeIcon sx={{ fontSize: '14px', marginRight: '4px' }} />
-                {item.period}
+                {item.episode}
             </Typography>
             <Typography
                 sx={{
@@ -48,7 +46,7 @@ const InforList = ({ item }: { item: IInforItem }) => {
                     display: 'flex',
                     alignItems: 'center',
                     marginRight: '8px',
-                    color: item.color,
+                    color: '#fff',
                 }}
             >
                 <DateRangeIcon sx={{ fontSize: '14px', marginRight: '4px' }} />

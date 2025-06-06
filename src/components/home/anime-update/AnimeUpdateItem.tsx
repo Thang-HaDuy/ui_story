@@ -13,8 +13,6 @@ import { ThemeContent } from '@/components/home/ThemeContent';
 export interface IAnimeUpdateItem {
     img: string;
     views: string;
-    rating: number;
-    episode: number;
     itemHover: IHoverInfor;
 }
 
@@ -51,8 +49,8 @@ const AnimeUpdateItem = ({ item, index }: { item: IAnimeUpdateItem; index: numbe
                             }}
                         >
                             <ImageMovie src={item.img} alt={item.itemHover.name} />
-                            <Rating number={item.rating} />
-                            <TotalEpisode episode={item.episode} />
+                            <Rating number={item.itemHover.info.rate} />
+                            <TotalEpisode episode={item.itemHover.info.episode} />
                             <SelectHover className={`classhover${index}`} />
                         </Box>
                         <Box sx={{ display: 'flex', alignItems: 'center', flexDirection: 'column' }}>

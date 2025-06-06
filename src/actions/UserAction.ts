@@ -4,7 +4,7 @@ import { IInfoContent } from '@/components/account/info.content';
 import { API_BASE_URL, API_ENDPOINTS } from '@/constants/api';
 import { sendRequest } from '@/utils/api';
 
-export const getUserInfo = async ({ access_token }: { access_token: string }): Promise<IInfoContent | undefined> => {
+export const getUserInfo = async ({ access_token }: { access_token: string }): Promise<IInfoContent> => {
     try {
         const res = await sendRequest<IBackendRes<IInfoContent>>({
             method: 'GET',
@@ -14,9 +14,8 @@ export const getUserInfo = async ({ access_token }: { access_token: string }): P
                 Authorization: `Bearer ${access_token}`, // nếu cần auth
             },
         });
-        return res.data;
+        return res.data as IInfoContent;
     } catch (e) {
-        console.log(e);
-        throw new Error('Lỗi server!');
+        return {} as IInfoContent;
     }
 };

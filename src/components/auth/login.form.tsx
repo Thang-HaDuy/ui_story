@@ -30,7 +30,6 @@ const LoginForm = () => {
     };
 
     const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
-        console.log(e.target.name);
         const { name, value } = e.target;
         setFormValues((prev) => ({ ...prev, [name]: value }));
     };

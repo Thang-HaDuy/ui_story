@@ -8,24 +8,23 @@ import VideocamIcon from '@mui/icons-material/Videocam';
 import MovieIcon from '@mui/icons-material/Movie';
 import PersonIcon from '@mui/icons-material/Person';
 import React from 'react';
+import { API_BASE_URL } from '@/constants/api';
+import ROUTES from '@/constants/routes';
 
 export interface IStep {
-    label: string;
-    imgPath: string;
+    id: string;
+    background: string;
     name: string;
-    detail: string;
-    episode: number;
+    description: string;
     author: string;
-    rating: number;
-    className: string;
-    categories: string[];
+    categories: string;
     info: IInforItem;
 }
 
 const SlideItem = ({ step }: { step: IStep }) => {
     return (
         <Box sx={{ position: 'relative' }}>
-            <Box component={Link} href={'/'}>
+            <Box component={Link} href={ROUTES.MOVIE + '/' + step.id}>
                 <Box
                     component="img"
                     sx={{
@@ -36,7 +35,7 @@ const SlideItem = ({ step }: { step: IStep }) => {
                         objectFit: 'cover',
                         borderRadius: '3px',
                     }}
-                    src={step.imgPath}
+                    src={API_BASE_URL + step.background}
                     alt={step.name}
                 />
             </Box>
@@ -53,7 +52,7 @@ const SlideItem = ({ step }: { step: IStep }) => {
                     padding: '20px',
                 }}
             >
-                <Box component={Link} href={'/'} sx={{ textDecoration: 'none' }}>
+                <Box component={Link} href={ROUTES.MOVIE + '/' + step.id} sx={{ textDecoration: 'none' }}>
                     <Typography
                         sx={{
                             marginBottom: '11px',
@@ -76,7 +75,7 @@ const SlideItem = ({ step }: { step: IStep }) => {
                         lineHeight: '21px',
                     }}
                 >
-                    {step.detail}
+                    {step.description}
                 </Typography>
                 <Box sx={{ display: 'flex', alignItems: 'center' }}>
                     <VideocamIcon sx={{ fontSize: '16px', color: '#b5e745', marginRight: '6.4px' }} />
@@ -110,23 +109,18 @@ const SlideItem = ({ step }: { step: IStep }) => {
                     >
                         Thể Loại:
                     </Box>
-                    {step.categories.map((category, index) => (
-                        <Box
-                            key={index}
-                            sx={{
-                                fontSize: '12px',
-                                fontWeight: '300',
-                                lineHeight: '22px',
-                                textDecoration: 'none',
-                                color: 'white',
-                                marginRight: '3px',
-                            }}
-                            component={Link}
-                            href={'/'}
-                        >
-                            {category},
-                        </Box>
-                    ))}
+                    <Box
+                        sx={{
+                            fontSize: '12px',
+                            fontWeight: '300',
+                            lineHeight: '22px',
+                            textDecoration: 'none',
+                            color: 'white',
+                            marginRight: '3px',
+                        }}
+                    >
+                        {step.categories},
+                    </Box>
                 </Box>
                 <Box sx={{ paddingBottom: '10px' }}>
                     {[1, 2, 3, 4, 5].map((number, index) => (

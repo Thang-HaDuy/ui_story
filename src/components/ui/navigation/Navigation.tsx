@@ -3,41 +3,25 @@ import Announcement from './items/announcement/Announcement';
 import ListMovieTop from './items/list-movie-top/ListMovieTop';
 import { GetListMovieTop } from '@/actions/MovieAction';
 import { ITutorialStep } from './items/list-movie-top/MovieItem';
+import { Suspense } from 'react';
 
 const Navigation = async () => {
-    let data;
+    let data: ITutorialStep[] = [];
 
     try {
         data = await GetListMovieTop();
-    } catch (e) {
-        console.log(e);
-    }
-
-    if (!data) {
-        return (
-            <Box>
-                <Announcement />
-            </Box>
-        );
+    } catch (error) {
+        console.error('Error fetching home page data:', error);
     }
 
     return (
         <Box>
             <Announcement />
-            <ListMovieTop tutorialSteps={data} />
+            <Suspense fallback={<div>Đang tải ListMovieTop...</div>}>
+                <ListMovieTop tutorialSteps={data} />
+            </Suspense>
         </Box>
     );
 };
 
 export default Navigation;
-
-// const tutorialSteps: ITutorialStep[] = [
-//     {
-//         label: 'San Francisco 10',
-//         imgPath: '/02yvy2ix.webp',
-//         text: 'Cuộc Sống Thảnh Thơi Tại Dị Giới Gian Lận Của Cựu Ứng',
-//         episode: 5,
-//         rating: 4.3,
-//         className: 'hoverEffect31',
-//     },
-// ];
