@@ -97,7 +97,7 @@ const ItemAnimeHot = ({ item, index }: { item: IItemAnime; index: number }) => {
                 >
                     {item.name}
                 </Typography>
-                <InforList item={item.info} />
+                <InforList color="#78909c" item={item.info} />
             </Box>
         </Box>
     );

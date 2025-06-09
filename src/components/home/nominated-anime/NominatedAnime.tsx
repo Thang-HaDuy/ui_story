@@ -3,171 +3,48 @@
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
-import { useState } from 'react';
+import { useState, useTransition } from 'react';
 import TitelItem from '@/components/home/TitelItem';
 import AnimeUpdateItem, { IAnimeUpdateItem } from '@/components/home/anime-update/AnimeUpdateItem';
+import { API_BASE_URL, API_ENDPOINTS } from '@/constants/api';
+import { sendRequest } from '@/utils/api';
 
-const NominatedAnime = () => {
-    const items: IAnimeUpdateItem[] = [
-        {
-            img: '/name2.jpg',
-            views: '650,345',
-            rating: 2.4,
-            episode: 4,
-            itemHover: {
-                name: 'Isekai Suicide Squad',
-                detail: 'Fable là một tay sát thủ lão luyện giỏi nhất trong lĩnh vực của mình. Tuy nhiên, anh ta đã giết rất nhiều người hai po grafile',
-                author: ' asread., studio MOTHER ',
-                categories: ['Harem', 'Fantasy', 'Adventure', 'Magic'],
-                performer: ['Harem', 'Fantasy', 'Adventure', 'Magic'],
-                info: {
-                    totalRate: 3.2,
-                    createdAt: '2024-3-5',
-                    quality: 'HD',
-                    totalEpisode: '3/6',
-                },
-            },
-        },
-        {
-            img: '/name2.jpg',
-            views: '650,345',
-            rating: 2.4,
-            episode: 4,
-            itemHover: {
-                name: 'Isekai Suicide Squad',
-                detail: 'Fable là một tay sát thủ lão luyện giỏi nhất trong lĩnh vực của mình. Tuy nhiên, anh ta đã giết rất nhiều người hai po grafile',
-                author: ' asread., studio MOTHER ',
-                categories: ['Harem', 'Fantasy', 'Adventure', 'Magic'],
-                performer: ['Harem', 'Fantasy', 'Adventure', 'Magic'],
-                info: {
-                    totalRate: 3.2,
-                    createdAt: '2024-3-5',
-                    quality: 'HD',
-                    totalEpisode: '3/6',
-                },
-            },
-        },
-        {
-            img: '/name2.jpg',
-            views: '650,345',
-            rating: 2.4,
-            episode: 4,
-            itemHover: {
-                name: 'Isekai Suicide Squad',
-                detail: 'Fable là một tay sát thủ lão luyện giỏi nhất trong lĩnh vực của mình. Tuy nhiên, anh ta đã giết rất nhiều người hai po grafile',
-                author: ' asread., studio MOTHER ',
-                categories: ['Harem', 'Fantasy', 'Adventure', 'Magic'],
-                performer: ['Harem', 'Fantasy', 'Adventure', 'Magic'],
-                info: {
-                    totalRate: 3.2,
-                    createdAt: '2024-3-5',
-                    quality: 'HD',
-                    totalEpisode: '3/6',
-                },
-            },
-        },
-        {
-            img: '/name2.jpg',
-            views: '650,345',
-            rating: 2.4,
-            episode: 4,
-            itemHover: {
-                name: 'Isekai Suicide Squad',
-                detail: 'Fable là một tay sát thủ lão luyện giỏi nhất trong lĩnh vực của mình. Tuy nhiên, anh ta đã giết rất nhiều người hai po grafile',
-                author: ' asread., studio MOTHER ',
-                categories: ['Harem', 'Fantasy', 'Adventure', 'Magic'],
-                performer: ['Harem', 'Fantasy', 'Adventure', 'Magic'],
-                info: {
-                    totalRate: 3.2,
-                    createdAt: '2024-3-5',
-                    quality: 'HD',
-                    totalEpisode: '3/6',
-                },
-            },
-        },
-        {
-            img: '/name2.jpg',
-            views: '650,345',
-            rating: 2.4,
-            episode: 4,
-            itemHover: {
-                name: 'Isekai Suicide Squad',
-                detail: 'Fable là một tay sát thủ lão luyện giỏi nhất trong lĩnh vực của mình. Tuy nhiên, anh ta đã giết rất nhiều người hai po grafile',
-                author: ' asread., studio MOTHER ',
-                categories: ['Harem', 'Fantasy', 'Adventure', 'Magic'],
-                performer: ['Harem', 'Fantasy', 'Adventure', 'Magic'],
-                info: {
-                    totalRate: 3.2,
-                    createdAt: '2024-3-5',
-                    quality: 'HD',
-                    totalEpisode: '3/6',
-                },
-            },
-        },
-        {
-            img: '/name2.jpg',
-            views: '650,345',
-            rating: 2.4,
-            episode: 4,
-            itemHover: {
-                name: 'Isekai Suicide Squad',
-                detail: 'Fable là một tay sát thủ lão luyện giỏi nhất trong lĩnh vực của mình. Tuy nhiên, anh ta đã giết rất nhiều người hai po grafile',
-                author: ' asread., studio MOTHER ',
-                categories: ['Harem', 'Fantasy', 'Adventure', 'Magic'],
-                performer: ['Harem', 'Fantasy', 'Adventure', 'Magic'],
-                info: {
-                    totalRate: 3.2,
-                    createdAt: '2024-3-5',
-                    quality: 'HD',
-                    totalEpisode: '3/6',
-                },
-            },
-        },
-        {
-            img: '/name2.jpg',
-            views: '650,345',
-            rating: 2.4,
-            episode: 4,
-            itemHover: {
-                name: 'Isekai Suicide Squad',
-                detail: 'Fable là một tay sát thủ lão luyện giỏi nhất trong lĩnh vực của mình. Tuy nhiên, anh ta đã giết rất nhiều người hai po grafile',
-                author: ' asread., studio MOTHER ',
-                categories: ['Harem', 'Fantasy', 'Adventure', 'Magic'],
-                performer: ['Harem', 'Fantasy', 'Adventure', 'Magic'],
-                info: {
-                    totalRate: 3.2,
-                    createdAt: '2024-3-5',
-                    quality: 'HD',
-                    totalEpisode: '3/6',
-                },
-            },
-        },
-        {
-            img: '/name2.jpg',
-            views: '650,345',
-            rating: 2.4,
-            episode: 4,
-            itemHover: {
-                name: 'Isekai Suicide Squad',
-                detail: 'Fable là một tay sát thủ lão luyện giỏi nhất trong lĩnh vực của mình. Tuy nhiên, anh ta đã giết rất nhiều người hai po grafile',
-                author: ' asread., studio MOTHER ',
-                categories: ['Harem', 'Fantasy', 'Adventure', 'Magic'],
-                performer: ['Harem', 'Fantasy', 'Adventure', 'Magic'],
-                info: {
-                    totalRate: 3.2,
-                    createdAt: '2024-3-5',
-                    quality: 'HD',
-                    totalEpisode: '3/6',
-                },
-            },
-        },
-    ];
-    const buttonLabels = ['Xem nhiều hôm nay', 'Xem nhiều trong mùa', 'Yêu Thích', 'Tháng'];
-    const [activeButton, setActiveButton] = useState<string | null>('Xem nhiều hôm nay');
+interface INominatedAnime {
+    items: IAnimeUpdateItem[];
+}
 
-    const handleButtonClick = (buttonLabel: string) => {
-        setActiveButton(buttonLabel);
+const NominatedAnime = (prop: INominatedAnime) => {
+    const [movies, setMovies] = useState<IAnimeUpdateItem[]>(prop.items);
+    const [error, setError] = useState<string | null>(null);
+    const [isPending, startTransition] = useTransition();
+
+    const buttonLabels = ['Xem nhiều hôm nay', 'Xem nhiều trong tuần', 'Tháng'];
+    const filterMap: Record<string, string> = {
+        'Xem nhiều hôm nay': 'most_viewed_today',
+        'Xem nhiều trong tuần': 'most_viewed_week',
+        Tháng: 'most_viewed_month',
     };
+    const [activeButton, setActiveButton] = useState<string>('Xem nhiều hôm nay');
+
+    const handleButtonClick = async (buttonLabel: string) => {
+        if (buttonLabel === activeButton) return;
+        setActiveButton(buttonLabel);
+
+        const filter = filterMap[buttonLabel];
+        startTransition(async () => {
+            setError(null);
+            try {
+                const res = await sendRequest<IBackendRes<IAnimeUpdateItem[]>>({
+                    method: 'GET',
+                    url: `${API_BASE_URL}${API_ENDPOINTS.NOMINATED_ANIME}?filter=${filter}`,
+                });
+                setMovies(res.data);
+            } catch (err) {
+                setError(err instanceof Error ? err.message : 'Unknown error');
+            }
+        });
+    };
+
     return (
         <TitelItem
             title="ĐỀ CỬ"
@@ -192,9 +69,15 @@ const NominatedAnime = () => {
             }
         >
             <Grid container sx={{ marginX: '-10px', width: 'auto' }}>
-                {items.map((item, index) => (
-                    <AnimeUpdateItem item={item} key={index} index={index} />
-                ))}
+                {isPending ? (
+                    <div>Đang tải...</div>
+                ) : error ? (
+                    <div>Lỗi: {error}</div>
+                ) : movies.length === 0 ? (
+                    <div>Không tìm thấy phim</div>
+                ) : (
+                    movies.map((item, index) => <AnimeUpdateItem key={index} item={item} index={index} />)
+                )}
             </Grid>
         </TitelItem>
     );

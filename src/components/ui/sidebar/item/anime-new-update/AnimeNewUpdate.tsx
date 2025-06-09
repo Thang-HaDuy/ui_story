@@ -2,56 +2,13 @@ import Box from '@mui/material/Box';
 import TitleSidebar from '@/components/ui/sidebar/item/TitleSidebar';
 import Link from 'next/link';
 import Typography from '@mui/material/Typography';
-import ItemAnime from './ItemAnime';
+import ItemAnime, { INewAnime } from './ItemAnime';
 
-export interface INewAnime {
-    name: string;
-    episode: number;
+interface IAnimeNewUpdate {
+    newAnime: INewAnime[];
 }
-
-const AnimeNewUpdate = () => {
-    const newAnime: INewAnime[] = [
-        {
-            name: 'Già Thiên',
-            episode: 12,
-        },
-        {
-            name: 'Già ThiênINewAnimeINewAnime',
-            episode: 12,
-        },
-        {
-            name: 'Già Thiê INewAnime INewAnime INewAnimen',
-            episode: 12,
-        },
-        {
-            name: 'Già Thiên',
-            episode: 12,
-        },
-        {
-            name: 'Già Thiên',
-            episode: 12,
-        },
-        {
-            name: 'Già Thiên',
-            episode: 12,
-        },
-        {
-            name: 'Già Thiên',
-            episode: 12,
-        },
-        {
-            name: 'Già Thiên',
-            episode: 12,
-        },
-        {
-            name: 'Già Thiên',
-            episode: 12,
-        },
-        {
-            name: 'Già Thiên',
-            episode: 12,
-        },
-    ];
+const AnimeNewUpdate = (prop: IAnimeNewUpdate) => {
+    const { newAnime } = prop;
 
     return (
         <Box

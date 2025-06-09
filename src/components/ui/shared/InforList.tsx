@@ -11,7 +11,7 @@ export interface IInforItem {
     episode: string;
 }
 
-const InforList = ({ item }: { item: IInforItem }) => {
+const InforList = ({ item, color }: { item: IInforItem; color?: string }) => {
     const [year] = item.createdAt.split('-');
 
     return (
@@ -34,7 +34,7 @@ const InforList = ({ item }: { item: IInforItem }) => {
                     display: 'flex',
                     alignItems: 'center',
                     marginRight: '8px',
-                    color: '#fff',
+                    color: color ? color : '#fff',
                 }}
             >
                 <AccessTimeIcon sx={{ fontSize: '14px', marginRight: '4px' }} />
@@ -46,7 +46,7 @@ const InforList = ({ item }: { item: IInforItem }) => {
                     display: 'flex',
                     alignItems: 'center',
                     marginRight: '8px',
-                    color: '#fff',
+                    color: color ? color : '#fff',
                 }}
             >
                 <DateRangeIcon sx={{ fontSize: '14px', marginRight: '4px' }} />

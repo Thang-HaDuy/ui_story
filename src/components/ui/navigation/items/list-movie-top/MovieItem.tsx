@@ -7,6 +7,7 @@ import Typography from '@mui/material/Typography';
 import ImageMovie from '@/components/ui/shared/ImageMovie';
 import ROUTES from '@/constants/routes';
 import { API_BASE_URL } from '@/constants/api';
+import { GenerateUrl } from '@/utils/helper';
 
 export interface ITutorialStep {
     id: string;
@@ -19,7 +20,7 @@ export interface ITutorialStep {
 }
 const MovieItem = ({ step }: { step: ITutorialStep }) => {
     return (
-        <Box component={Link} href={ROUTES.MOVIE + '/' + step.id}>
+        <Box component={Link} href={ROUTES.MOVIE + '/' + GenerateUrl(step.name, step.id)}>
             <Box
                 sx={{
                     marginX: '9.6px',

@@ -4,13 +4,27 @@ import JoinGround from './item/JoinGround';
 import AnimeNewUpdate from './item/anime-new-update/AnimeNewUpdate';
 import AnimeHot from './item/anime-hot/AnimeHot';
 import SuggestedTagList from './item/suggested-tag-list/SuggestedTagList';
+import { getMinimalAnimeUpdates } from '@/actions/MovieAction';
+import { INewAnime } from './item/anime-new-update/ItemAnime';
 
-const Sidebar = () => {
+const Sidebar = async () => {
+    let updateData: INewAnime[] = [];
+
+    try {
+        [updateData] = await Promise.all([
+            getMinimalAnimeUpdates(),
+            // getAnimeUpdate(),
+        ]);
+    } catch (error) {
+        console.error('Error fetching home page data:', error);
+        // Có thể trả về trang lỗi hoặc thông báo
+    }
+
     return (
         <>
             <RandomAnime />
             <JoinGround />
-            <AnimeNewUpdate />
+            <AnimeNewUpdate newAnime={updateData} />
             <AnimeHot />
             <SuggestedTagList />
         </>

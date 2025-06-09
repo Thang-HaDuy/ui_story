@@ -11,23 +11,6 @@ interface ISlideAnimeTop {
 
 const SlideAnimeTop = (prop: ISlideAnimeTop) => {
     const { tutorialSteps } = prop;
-    // const tutorialSteps: IStep[] = [
-    //     {
-    //         id: 'wfsdgvsdfg',
-    //         background: '/slide.webp',
-    //         name: 'Lúc Đó, Tôi Đã Chuyển Sinh Thành Slime Mùa 3',
-    //         description:
-    //             'Anh thanh niên dân đen bất tài thấp hèn vô dụng trước khi chết đã ước được trở thànhbậc thầy ma pháp, không...',
-    //         author: 'East Fish Studio',
-    //         categories: 'Drama, Ecchi, Fantasy',
-    //         info: {
-    //             rate: 44,
-    //             createdAt: '1025-4-3',
-    //             quality: 'HD',
-    //             episode: '4/4',
-    //         },
-    //     },
-    // ];
 
     return (
         <Box

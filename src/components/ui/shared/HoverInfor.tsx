@@ -9,6 +9,7 @@ import PersonIcon from '@mui/icons-material/Person';
 import { GifBoxRounded } from '@mui/icons-material';
 
 export interface IHoverInfor {
+    id: string;
     name: string;
     detail: string;
     author: string;

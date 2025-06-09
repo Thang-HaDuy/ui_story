@@ -10,6 +10,8 @@ import PersonIcon from '@mui/icons-material/Person';
 import React from 'react';
 import { API_BASE_URL } from '@/constants/api';
 import ROUTES from '@/constants/routes';
+import { GenerateUrl } from '@/utils/helper';
+import { useRouter } from 'next/navigation';
 
 export interface IStep {
     id: string;
@@ -22,9 +24,11 @@ export interface IStep {
 }
 
 const SlideItem = ({ step }: { step: IStep }) => {
+    const router = useRouter();
+
     return (
         <Box sx={{ position: 'relative' }}>
-            <Box component={Link} href={ROUTES.MOVIE + '/' + step.id}>
+            <Box component={Link} href={ROUTES.MOVIE + '/' + GenerateUrl(step.name, step.id)}>
                 <Box
                     component="img"
                     sx={{
@@ -52,7 +56,11 @@ const SlideItem = ({ step }: { step: IStep }) => {
                     padding: '20px',
                 }}
             >
-                <Box component={Link} href={ROUTES.MOVIE + '/' + step.id} sx={{ textDecoration: 'none' }}>
+                <Box
+                    component={Link}
+                    href={ROUTES.MOVIE + '/' + GenerateUrl(step.name, step.id)}
+                    sx={{ textDecoration: 'none' }}
+                >
                     <Typography
                         sx={{
                             marginBottom: '11px',
@@ -144,6 +152,9 @@ const SlideItem = ({ step }: { step: IStep }) => {
                         paddingX: '16px',
                     }}
                     startIcon={<PlayArrowIcon />}
+                    onClick={() => {
+                        router.push(ROUTES.MOVIE + '/' + GenerateUrl(step.name, step.id));
+                    }}
                 >
                     Xem Anime
                 </Button>

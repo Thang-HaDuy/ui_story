@@ -21,10 +21,10 @@ const AnimeHot = () => {
             className: 'Animehaha1',
             img: '/name1.jpg',
             info: {
-                totalRate: 3.2,
+                rate: 3.2,
                 createdAt: '2024-3-5',
                 quality: 'HD',
-                totalEpisode: '3/6',
+                episode: '3/6',
             },
         },
         {
@@ -32,10 +32,10 @@ const AnimeHot = () => {
             className: 'Animehaha1',
             img: '/name1.jpg',
             info: {
-                totalRate: 3.2,
+                rate: 3.2,
                 createdAt: '2024-3-5',
                 quality: 'HD',
-                totalEpisode: '3/6',
+                episode: '3/6',
             },
         },
         {
@@ -43,10 +43,10 @@ const AnimeHot = () => {
             className: 'Animehaha1',
             img: '/name1.jpg',
             info: {
-                totalRate: 3.2,
+                rate: 3.2,
                 createdAt: '2024-3-5',
                 quality: 'HD',
-                totalEpisode: '3/6',
+                episode: '3/6',
             },
         },
         {
@@ -54,10 +54,10 @@ const AnimeHot = () => {
             className: 'Animehaha1',
             img: '/name1.jpg',
             info: {
-                totalRate: 3.2,
+                rate: 3.2,
                 createdAt: '2024-3-5',
                 quality: 'HD',
-                totalEpisode: '3/6',
+                episode: '3/6',
             },
         },
         {
@@ -65,10 +65,10 @@ const AnimeHot = () => {
             className: 'Animehaha1',
             img: '/name1.jpg',
             info: {
-                totalRate: 3.2,
+                rate: 3.2,
                 createdAt: '2024-3-5',
                 quality: 'HD',
-                totalEpisode: '3/6',
+                episode: '3/6',
             },
         },
         {
@@ -76,10 +76,10 @@ const AnimeHot = () => {
             className: 'Animehaha1',
             img: '/name1.jpg',
             info: {
-                totalRate: 3.2,
+                rate: 3.2,
                 createdAt: '2024-3-5',
                 quality: 'HD',
-                totalEpisode: '3/6',
+                episode: '3/6',
             },
         },
         {
@@ -87,10 +87,10 @@ const AnimeHot = () => {
             className: 'Animehaha1',
             img: '/name1.jpg',
             info: {
-                totalRate: 3.2,
+                rate: 3.2,
                 createdAt: '2024-3-5',
                 quality: 'HD',
-                totalEpisode: '3/6',
+                episode: '3/6',
             },
         },
     ];

@@ -9,9 +9,12 @@ import SelectHover from '@/components/ui/shared/SelectHover';
 import HoverInfor, { IHoverInfor } from '@/components/ui/shared/HoverInfor';
 import ThemeProvider from '@mui/material/styles/ThemeProvider';
 import { ThemeContent } from '@/components/home/ThemeContent';
+import { GenerateUrl } from '@/utils/helper';
+import ROUTES from '@/constants/routes';
+import { API_BASE_URL } from '@/constants/api';
 
 export interface IAnimeUpdateItem {
-    img: string;
+    avatar: string;
     views: string;
     itemHover: IHoverInfor;
 }
@@ -32,7 +35,7 @@ const AnimeUpdateItem = ({ item, index }: { item: IAnimeUpdateItem; index: numbe
                 >
                     <Box
                         component={Link}
-                        href={'/'}
+                        href={ROUTES.MOVIE + '/' + GenerateUrl(item.itemHover.name, item.itemHover.id)}
                         sx={{
                             textDecoration: 'none',
                         }}
@@ -48,7 +51,7 @@ const AnimeUpdateItem = ({ item, index }: { item: IAnimeUpdateItem; index: numbe
                                 },
                             }}
                         >
-                            <ImageMovie src={item.img} alt={item.itemHover.name} />
+                            <ImageMovie src={API_BASE_URL + item.avatar} alt={item.itemHover.name} />
                             <Rating number={item.itemHover.info.rate} />
                             <TotalEpisode episode={item.itemHover.info.episode} />
                             <SelectHover className={`classhover${index}`} />

@@ -1,13 +1,20 @@
 import Box from '@mui/material/Box';
 import Link from 'next/link';
 import Typography from '@mui/material/Typography';
-import { INewAnime } from './AnimeNewUpdate';
+import ROUTES from '@/constants/routes';
+import { GenerateUrl } from '@/utils/helper';
+
+export interface INewAnime {
+    id: string;
+    name: string;
+    episode: number;
+}
 
 const ItemAnime = ({ item }: { item: INewAnime }) => {
     return (
         <Box
             component={Link}
-            href="/login"
+            href={ROUTES.MOVIE + '/' + GenerateUrl(item.name, item.id)}
             sx={{
                 display: 'flex',
                 justifyContent: 'space-between',

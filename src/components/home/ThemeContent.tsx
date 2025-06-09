@@ -1,3 +1,5 @@
+'use client';
+
 import createTheme from '@mui/material/styles/createTheme';
 
 export const ThemeContent = createTheme({

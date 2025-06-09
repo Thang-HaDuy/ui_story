@@ -1,4 +1,17 @@
-export function slugify(title: string): string {
+export const GenerateUrl = (name: string, id: string): string => {
+    let url = '';
+
+    if (!id || !uuidRegex.test(id)) {
+        return url;
+    }
+    let slug = slugify(name);
+
+    url = `${slug}_${id}`;
+
+    return url;
+};
+
+const slugify = (title: string): string => {
     return title
         .toLowerCase()
         .normalize('NFD') // Chuyển tiếng Việt có dấu thành không dấu
@@ -7,7 +20,7 @@ export function slugify(title: string): string {
         .trim()
         .replace(/\s+/g, '-') // Thay khoảng trắng bằng dấu gạch ngang
         .replace(/-+/g, '-'); // Xóa dấu gạch ngang trùng lặp
-}
+};
 // Ví dụ:
 // console.log(slugify('Tạ Là Vua Aladi')); // Kết quả: "ta-la-vua-aladi"
 
@@ -15,7 +28,7 @@ export function slugify(title: string): string {
 // const [slug, id] = params.slug.split('_');
 
 // Kiểm tra ID hợp lệ (UUID)
-export const uuidRegex = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
+const uuidRegex = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
 // if (!id || !uuidRegex.test(id)) {
 //   notFound(); // Trả về 404 nếu ID không hợp lệ
 // }

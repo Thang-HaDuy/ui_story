@@ -13,5 +13,8 @@ export const API_ENDPOINTS = {
     LIST_MOVIE_TOP: 'Api/MovieApi/MovieTopRating',
     SLIDE_ANIME_TOP: 'Api/MovieApi/SlideAnimeTop',
     NEW_ANIME_UPDATE: 'Api/MovieApi/NewAnimeUpdate',
+    UPCOMMING_ANIME: 'Api/MovieApi/UpcommingAnime',
+    NOMINATED_ANIME: 'Api/MovieApi/NominatedAnime',
+    MINIMAL_NEW_ANIME: 'Api/MovieApi/MinimalNewAnimeUpdates',
     // thêm endpoint khác...
 };

@@ -9,9 +9,12 @@ import HoverInfor, { IHoverInfor } from '@/components/ui/shared/HoverInfor';
 import TextComing from '@/components/ui/shared/TextComing';
 import ThemeProvider from '@mui/material/styles/ThemeProvider';
 import { ThemeContent } from '@/components/home/ThemeContent';
+import ROUTES from '@/constants/routes';
+import { GenerateUrl } from '@/utils/helper';
+import { API_BASE_URL } from '@/constants/api';
 
 export interface IUpcommingItem {
-    img: string;
+    avatar: string;
     views: string;
     rating: number;
     itemHover: IHoverInfor;
@@ -32,7 +35,7 @@ const UpcommingItem = ({ item, index }: { item: IUpcommingItem; index: number })
                 >
                     <Box
                         component={Link}
-                        href={'/'}
+                        href={ROUTES.MOVIE + '/' + GenerateUrl(item.itemHover.name, item.itemHover.id)}
                         sx={{
                             textDecoration: 'none',
                         }}
@@ -48,7 +51,7 @@ const UpcommingItem = ({ item, index }: { item: IUpcommingItem; index: number })
                                 },
                             }}
                         >
-                            <ImageMovie src={item.img} alt={item.itemHover.name} />
+                            <ImageMovie src={API_BASE_URL + item.avatar} alt={item.itemHover.name} />
                             <Rating number={item.rating} />
                             <SelectHover className={`classhover${index}`} />
                             <TextComing />
