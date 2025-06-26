@@ -8,6 +8,7 @@ export const API_ENDPOINTS = {
     REGISTER: 'Api/AccountApi/Register',
     USER_INFO: 'Api/AccountApi/UserDetail',
     UPDATE_USER: 'Api/AccountApi/UpdateUser',
+    COMFIRM_EMAIL: 'Api/AccountApi/ConfirmEmail',
     FORGOT_PASSWORD: 'Api/AccountApi/ForgotPassword',
     RESET_PASSWORD: 'Api/AccountApi/ResetPassword',
     LIST_MOVIE_TOP: 'Api/MovieApi/MovieTopRating',

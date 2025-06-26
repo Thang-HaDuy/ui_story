@@ -56,6 +56,9 @@ const RegisterForm = () => {
                 method: 'POST',
                 url: `${API_BASE_URL}${API_ENDPOINTS.REGISTER}`,
                 body: { ...formValues },
+                headers: {
+                    'X-Subdomain': `${window.location.protocol}//${window.location.host}`,
+                },
             });
             if (res.statusCode == 401) {
                 setServerError('Thông tin không hợp lệ!');
