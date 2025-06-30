@@ -103,7 +103,7 @@ const Moviesuggest = () => {
     };
 
     return (
-        <Box sx={{ bgcolor: 'background.default', padding: '10px' }}>
+        <Box sx={{ bgcolor: '#181d1f', padding: '10px' }}>
             <TitleSidebar content={'Phim liên quan'}>
                 <></>
             </TitleSidebar>

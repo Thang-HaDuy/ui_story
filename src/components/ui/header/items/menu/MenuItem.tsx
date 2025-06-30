@@ -55,13 +55,13 @@ export const season: Item[] = [
     { href: '/season/summer/2022', text: 'Mùa Hạ 2022' },
 ];
 
-export const navs: Item[] = [
-    { href: '/library/0-9/', text: 'THƯ VIỆN' },
-    { href: '/movie-screening-schedule', text: 'LỊCH CHIẾU' },
-];
+export const navs: Item[] = [{ href: '/library/0-9/', text: 'THƯ VIỆN' }];
 const MenuItems = () => {
     return (
         <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'block' } }}>
+            <Button component={Link} href="/" sx={{ color: '#fff', '&:hover': { backgroundColor: 'transparent' } }}>
+                HOME
+            </Button>
             <MenuDropDown contents={topAnime} className="topAnime">
                 <Button sx={{ color: '#fff', '&:hover': { backgroundColor: 'transparent' } }}>
                     TOP ANIME <KeyboardArrowDownIcon sx={{ color: '#b5e745' }} />
