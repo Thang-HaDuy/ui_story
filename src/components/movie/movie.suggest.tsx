@@ -10,7 +10,11 @@ import KeyboardArrowRight from '@mui/icons-material/KeyboardArrowRight';
 import KeyboardArrowLeft from '@mui/icons-material/KeyboardArrowLeft';
 import MovieItem, { ITutorialStep } from '@/components/ui/navigation/items/list-movie-top/MovieItem';
 
-const Moviesuggest = () => {
+export interface IMoviesuggestProp {
+    data: ITutorialStep[];
+}
+
+const Moviesuggest = (prop: IMoviesuggestProp) => {
     const breakpoints = {
         150: {
             slidesPerView: 2,
@@ -117,7 +121,7 @@ const Moviesuggest = () => {
                     breakpoints={breakpoints}
                     loop={true}
                 >
-                    {tutorialSteps.map((step, index) => (
+                    {prop.data.map((step, index) => (
                         <SwiperSlide key={index}>
                             <MovieItem step={step} />
                         </SwiperSlide>

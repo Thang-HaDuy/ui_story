@@ -3,6 +3,8 @@ import Box from '@mui/material/Box';
 import ElectricalServicesIcon from '@mui/icons-material/ElectricalServices';
 import { Grid } from '@mui/material';
 import Link from 'next/link';
+import ROUTES from '@/constants/routes';
+import { GenerateUrl } from '@/utils/helper';
 
 export interface IEpisodeListData {
     id: string;
@@ -27,7 +29,7 @@ const EpisodeList = (prop: IEpisodeList) => {
                     <Grid item key={e.id} xs={1}>
                         <Box
                             component={Link}
-                            href={'movieId'}
+                            href={ROUTES.MOVIE + '/' + movieSlug + '/' + GenerateUrl('tap-1', e.id)}
                             sx={{
                                 display: 'block',
                                 backgroundColor: episodeId == e.id ? '#e62117' : '#3b3b3b',

@@ -1,9 +1,12 @@
 'use server';
 
+import { IEpisodeListData } from '@/components/episode/episode.list';
 import { IAnimeUpdateItem } from '@/components/home/anime-update/AnimeUpdateItem';
 import { IStep } from '@/components/home/slide-anime-top/SlideItem';
 import { IUpcommingItem } from '@/components/home/upcomming-anime/UpcommingItem';
 import { ILibraryRowData } from '@/components/library/library.row';
+import { IMovieBanerData, IMovieBanerProp } from '@/components/movie/movie.baner';
+import { IMovieInfoProp } from '@/components/movie/movie.info';
 import { ITutorialStep } from '@/components/ui/navigation/items/list-movie-top/MovieItem';
 import { INewAnime } from '@/components/ui/sidebar/item/anime-new-update/ItemAnime';
 import { API_BASE_URL, API_ENDPOINTS } from '@/constants/api';
@@ -96,7 +99,68 @@ export const GetMovieInLibrary = async (filter: string, page: number): Promise<I
         });
         return res;
     } catch (e) {
-        console.log(e);
         return {} as IModelPaginate<ILibraryRowData[]>;
+    }
+};
+
+export const GetMovieBanerData = async (id: string): Promise<IMovieBanerData[]> => {
+    try {
+        const res = await sendRequest<IBackendRes<IMovieBanerData[]>>({
+            method: 'GET',
+            url: `${API_BASE_URL}${API_ENDPOINTS.MOVIE_BANER_BY_ID}`,
+            queryParams: {
+                id: id,
+            },
+        });
+
+        return res.data;
+    } catch (e) {
+        return [];
+    }
+};
+
+export const GetMovieInfoData = async (id: string): Promise<IMovieInfoProp[]> => {
+    try {
+        const res = await sendRequest<IBackendRes<IMovieInfoProp[]>>({
+            method: 'GET',
+            url: `${API_BASE_URL}${API_ENDPOINTS.MOVIE_INFO_BY_ID}`,
+            queryParams: {
+                id: id,
+            },
+        });
+        console.log(res);
+        return res.data;
+    } catch (e) {
+        return [];
+    }
+};
+
+export const GetMoviesuggestData = async (id: string): Promise<ITutorialStep[]> => {
+    try {
+        const res = await sendRequest<IBackendRes<ITutorialStep[]>>({
+            method: 'GET',
+            url: `${API_BASE_URL}${API_ENDPOINTS.MOVIE_SUGGEST}`,
+            queryParams: {
+                id: id,
+            },
+        });
+        return res.data;
+    } catch (e) {
+        return [];
+    }
+};
+
+export const GetEpisodeListData = async (id: string): Promise<IEpisodeListData[]> => {
+    try {
+        const res = await sendRequest<IBackendRes<IEpisodeListData[]>>({
+            method: 'GET',
+            url: `${API_BASE_URL}${API_ENDPOINTS.EPISODE_LIST}`,
+            queryParams: {
+                id: id,
+            },
+        });
+        return res.data;
+    } catch (e) {
+        return [];
     }
 };

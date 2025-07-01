@@ -6,7 +6,19 @@ import Grid from '@mui/material/Grid';
 import AdjustIcon from '@mui/icons-material/Adjust';
 import Typography from '@mui/material/Typography';
 
-const MovieInfo = () => {
+export interface IMovieInfoProp {
+    id: string;
+    newEpisode: string;
+    status: string;
+    categories: string;
+    author: string;
+    duration: number;
+    quality: string;
+    rating: number;
+    language: string;
+}
+
+const MovieInfo = (prop: IMovieInfoProp) => {
     return (
         <Box sx={{ bgcolor: 'background.default', paddingBottom: '10px', marginBottom: '20px' }}>
             <Grid container>
@@ -20,7 +32,7 @@ const MovieInfo = () => {
                                 <Typography sx={{ fontSize: '12px', fontWeight: '700', marginRight: '3px' }}>
                                     Tập mới:{' '}
                                 </Typography>
-                                11, 12, 13
+                                {prop.newEpisode ? prop.newEpisode : 'đang cập nhật'}
                             </Box>
                         </ListItem>
                         <ListItem>
@@ -31,7 +43,7 @@ const MovieInfo = () => {
                                 <Typography sx={{ fontSize: '12px', fontWeight: '700', marginRight: '3px' }}>
                                     Trạng thái:{' '}
                                 </Typography>
-                                full
+                                {prop.status ? prop.status : 'đang cập nhật'}
                             </Box>
                         </ListItem>
                         <ListItem>
@@ -42,7 +54,7 @@ const MovieInfo = () => {
                                 <Typography sx={{ fontSize: '12px', fontWeight: '700', marginRight: '3px' }}>
                                     Thể Loại:{' '}
                                 </Typography>
-                                Anime bộ, Fantasy, Adventure, Action,
+                                {prop.categories ? prop.categories : 'đang cập nhật'}
                             </Box>
                         </ListItem>
                         <ListItem>
@@ -53,7 +65,7 @@ const MovieInfo = () => {
                                 <Typography sx={{ fontSize: '12px', fontWeight: '700', marginRight: '3px' }}>
                                     Đạo diễn:{' '}
                                 </Typography>
-                                Mori Kunihiro
+                                {prop.author ? prop.author : 'đang cập nhật'}
                             </Box>
                         </ListItem>
                     </List>
@@ -68,7 +80,7 @@ const MovieInfo = () => {
                                 <Typography sx={{ fontSize: '12px', fontWeight: '700', marginRight: '3px' }}>
                                     Thời lượng:{' '}
                                 </Typography>
-                                12/12
+                                {prop.duration ? prop.duration : 'đang cập nhật'}
                             </Box>
                         </ListItem>
                         <ListItem>
@@ -79,7 +91,7 @@ const MovieInfo = () => {
                                 <Typography sx={{ fontSize: '12px', fontWeight: '700', marginRight: '3px' }}>
                                     Chất lượng:{' '}
                                 </Typography>
-                                12/12
+                                {prop.quality ? prop.quality : 'đang cập nhật'}
                             </Box>
                         </ListItem>
                         <ListItem>
@@ -90,7 +102,7 @@ const MovieInfo = () => {
                                 <Typography sx={{ fontSize: '12px', fontWeight: '700', marginRight: '3px' }}>
                                     Rating:{' '}
                                 </Typography>
-                                FHD
+                                {prop.rating ? prop.rating : 'đang cập nhật'}
                             </Box>
                         </ListItem>
                         <ListItem>
@@ -101,7 +113,7 @@ const MovieInfo = () => {
                                 <Typography sx={{ fontSize: '12px', fontWeight: '700', marginRight: '3px' }}>
                                     Ngôn ngữ:{' '}
                                 </Typography>
-                                VietSub
+                                {prop.language ? prop.language : 'đang cập nhật'}
                             </Box>
                         </ListItem>
                     </List>

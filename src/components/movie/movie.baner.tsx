@@ -6,8 +6,30 @@ import AccessTimeIcon from '@mui/icons-material/AccessTime';
 import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import SelectHover from '../ui/shared/SelectHover';
+import { API_BASE_URL } from '@/constants/api';
+import Link from 'next/link';
+import ROUTES from '@/constants/routes';
+import { GenerateUrl } from '@/utils/helper';
 
-const MovieBaner = () => {
+export interface IMovieBanerProp {
+    datas: IMovieBanerData;
+    movieSlug: string;
+}
+export interface IMovieBanerData {
+    avatar: string;
+    background: string;
+    name: string;
+    description: string;
+    episode: number;
+    createdAt: string;
+    countViews: number;
+    rate: number;
+    averageRate: number;
+    episodeId: string;
+}
+
+const MovieBaner = (prop: IMovieBanerProp) => {
+    const { datas, movieSlug } = prop;
     return (
         <Box
             sx={{
@@ -16,7 +38,7 @@ const MovieBaner = () => {
                 backgroundRepeat: 'no-repeat',
                 backgroundSize: 'cover',
                 position: 'relative',
-                backgroundImage: "url('/slide.webp')",
+                backgroundImage: `url('${API_BASE_URL} + ${datas.avatar}'})`,
                 marginBottom: '20px',
             }}
         >
@@ -48,7 +70,7 @@ const MovieBaner = () => {
                             fontWeight: '300',
                         }}
                     >
-                        One Piece - Đảo Hải Tặc
+                        {datas.name ? datas.name : 'đang cập nhật'}
                     </Typography>
                 </Box>
                 <Box
@@ -67,23 +89,34 @@ const MovieBaner = () => {
                         },
                     }}
                 >
-                    <SelectHover className="hello123" />
-                    <Box component="img" sx={{ width: '100%', height: '100%' }} alt="/hello" src="/name1.jpg" />
-                    <Typography
-                        sx={{
-                            position: 'absolute',
-                            left: '0',
-                            right: '0',
-                            bottom: '10%',
-                            textAlign: 'center',
-                            backgroundColor: '#f009',
-                            fontSize: '20px',
-                            padding: '5px 0',
-                            zIndex: '10',
-                        }}
+                    <Box
+                        component={Link}
+                        href={ROUTES.MOVIE + '/' + movieSlug + '/' + GenerateUrl('tap-1', datas.episodeId)}
                     >
-                        XEM PHIM
-                    </Typography>
+                        <SelectHover className="hello123" />
+                        <Box
+                            component="img"
+                            sx={{ width: '100%', height: '100%' }}
+                            alt="/hello"
+                            src={API_BASE_URL + datas.avatar}
+                        />
+                        <Typography
+                            sx={{
+                                position: 'absolute',
+                                left: '0',
+                                right: '0',
+                                bottom: '10%',
+                                textAlign: 'center',
+                                backgroundColor: '#f009',
+                                fontSize: '20px',
+                                padding: '5px 0',
+                                zIndex: '10',
+                                color: '#fff',
+                            }}
+                        >
+                            XEM PHIM
+                        </Typography>
+                    </Box>
                 </Box>
                 <Box sx={{ marginLeft: '200px', marginBottom: '20px' }}>
                     <Typography
@@ -93,14 +126,11 @@ const MovieBaner = () => {
                             lineHeight: '19.5px',
                             marginBottom: '20px',
                             color: '#ffffffa3',
+                            minHeight: '130px',
+                            maxHeight: '150px',
                         }}
                     >
-                        Anime được phát sóng lần đầu tiên vào năm 1999 và nhanh chóng trở thành một trong những series
-                        anime phổ biến nhất trên thế giới. Câu chuyện xoay quanh Monkey D. Luffy, một chàng trai trẻ với
-                        giấc mơ trở thành Vua Hải Tặc. Luffy, người có khả năng co giãn như cao su sau khi ăn nhầm Trái
-                        Ác Quỷ, lãnh đạo nhóm Hải Tặc Mũ Rơm đi khắp Grand Line để tìm kiếm kho báu huyền thoại One
-                        Piece và theo đuổi giấc mơ của mình. Series nổi tiếng với cốt truyện phong phú, nhân vật đa
-                        dạng, và những pha hành động hấp dẫn
+                        {datas.description ? datas.description : 'đang cập nhật'}
                     </Typography>
                     <Box
                         sx={{
@@ -118,26 +148,32 @@ const MovieBaner = () => {
                                 borderRight: '1px solid rgba(255, 255, 255, .2)',
                             }}
                         >
-                            <CircularProgressWithLabel value={60} />
+                            <CircularProgressWithLabel value={datas.averageRate ? datas.averageRate : 0} />
                             <Box sx={{ display: 'flex', flexDirection: 'column', margin: '0 10px' }}>
-                                <Rating name="half-rating" max={10} size="small" defaultValue={2.5} precision={0.5} />
+                                <Rating
+                                    name="half-rating"
+                                    max={10}
+                                    size="small"
+                                    defaultValue={datas.averageRate ? datas.averageRate : 0}
+                                    precision={0.5}
+                                />
                                 <Typography sx={{ fontSize: '10px', fontWeight: '300', lineHeight: '15px' }}>
-                                    (Đánh giá 9.2/10 từ 3947 thành viên)
+                                    (Đánh giá {datas.averageRate ? datas.averageRate : 0}/10 từ các thành viên)
                                 </Typography>
                             </Box>
                         </Box>
                         <Box sx={{ display: 'flex', alignItems: 'center' }}>
                             <AccessTimeIcon sx={{ fontSize: '14px', marginRight: '3.2px', color: '#ffffffa3' }} />
                             <Typography sx={{ fontSize: '12px', fontWeight: '300', marginRight: '8px' }}>
-                                12/???
+                                {datas.episode ? datas.episode : '???'}/???
                             </Typography>
                             <CalendarMonthIcon sx={{ fontSize: '14px', marginRight: '3.2px', color: '#ffffffa3' }} />
                             <Typography sx={{ fontSize: '12px', fontWeight: '300', marginRight: '8px' }}>
-                                2025
+                                {datas.createdAt ? datas.createdAt.split('-')[0] : 'đang cập nhật'}
                             </Typography>
                             <VisibilityIcon sx={{ fontSize: '14px', marginRight: '3.2px', color: '#ffffffa3' }} />
                             <Typography sx={{ fontSize: '12px', fontWeight: '300', marginRight: '8px' }}>
-                                38 lượt xem
+                                {datas.countViews ? datas.countViews : 0} lượt xem
                             </Typography>
                         </Box>
                     </Box>

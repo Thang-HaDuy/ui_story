@@ -40,6 +40,7 @@ const Search = () => {
 
         fetchApi();
     }, [debouncedValue]);
+
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const searchValue = e.target.value;
         if (!searchValue.startsWith(' ')) {
