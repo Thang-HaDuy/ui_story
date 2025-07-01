@@ -1,8 +1,25 @@
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Grid from '@mui/material/Grid';
+import StarIcon from '@mui/icons-material/Star';
 
-const LibraryRow = () => {
+export interface ILibraryRowData {
+    id: string;
+    name: string;
+    avater: string;
+    createdAt: string;
+    status: string;
+    categories: string;
+    rating: number;
+}
+
+export interface ILibraryRowProp {
+    data: ILibraryRowData;
+    index: number;
+}
+
+const LibraryRow = (prop: ILibraryRowProp) => {
+    const { data, index } = prop;
     return (
         <Grid
             container
@@ -28,7 +45,7 @@ const LibraryRow = () => {
                 item
                 xs={0.5}
             >
-                #
+                {index + 1}
             </Grid>
             <Grid
                 sx={{
@@ -64,7 +81,7 @@ const LibraryRow = () => {
                 item
                 xs={3.8}
             >
-                Kết quả
+                {data.name ? data.name : 'đang cập nhật'}
             </Grid>
             <Grid
                 sx={{
@@ -81,7 +98,7 @@ const LibraryRow = () => {
                 item
                 xs={0.7}
             >
-                Năm
+                {data.createdAt ? data.createdAt?.split('-')[0] : 'đang cập nhật'}
             </Grid>
             <Grid
                 sx={{
@@ -96,7 +113,7 @@ const LibraryRow = () => {
                 item
                 xs={1}
             >
-                Status
+                {data.status ? data.status : 'đang cập nhật'}
             </Grid>
             <Grid
                 sx={{
@@ -111,12 +128,12 @@ const LibraryRow = () => {
                 item
                 xs={4.3}
             >
-                Thể loại
+                {data.categories ? data.categories : 'đang cập nhật'}
             </Grid>
             <Grid
                 sx={{
                     textAlign: 'center',
-                    color: '#78909c',
+                    color: '#b5e745',
                     fontSize: '13px',
                     fontWeight: '600',
                     border: '0.5px solid #0f1416',
@@ -128,7 +145,8 @@ const LibraryRow = () => {
                 item
                 xs={1}
             >
-                Đánh giá
+                <StarIcon sx={{ fontSize: '14px', color: '#b5e745' }} />
+                {data.rating ? data.rating : 0}
             </Grid>
         </Grid>
     );

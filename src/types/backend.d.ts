@@ -20,13 +20,11 @@ declare global {
     }
 
     interface IModelPaginate<T> {
-        meta: {
-            current: number;
-            pageSize: number;
-            pages: number;
-            total: number;
-        };
-        result: T[];
+        pageNumber: number;
+        pageSize: number;
+        totalItemCount: number;
+        pageCount: number;
+        data: T | [];
     }
     interface ILogin {
         access_token: string;

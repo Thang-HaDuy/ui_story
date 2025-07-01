@@ -17,5 +17,6 @@ export const API_ENDPOINTS = {
     UPCOMMING_ANIME: 'Api/MovieApi/UpcommingAnime',
     NOMINATED_ANIME: 'Api/MovieApi/NominatedAnime',
     MINIMAL_NEW_ANIME: 'Api/MovieApi/MinimalNewAnimeUpdates',
+    MOVIE_IN_LIBRARY: 'Api/MovieApi/MovieInLibrary',
     // thêm endpoint khác...
 };

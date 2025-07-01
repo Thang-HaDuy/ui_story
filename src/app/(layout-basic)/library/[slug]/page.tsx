@@ -3,9 +3,12 @@ import Box from '@mui/material/Box';
 import LibraryNav from '@/components/library/library.nav';
 import { INaviItem } from '@/components/ui/shared/NavigationHeadings';
 import LibraryTable from '@/components/library/library.table';
+import AppPagination from '@/components/ui/shared/Pagination';
+import { ILibraryRowData } from '@/components/library/library.row';
+import { GetMovieInLibrary } from '@/actions/MovieAction';
+import LibraryContainer from '@/components/library/library.container';
 
-const Page = ({ params }: { params: { slug: string } }) => {
-    const { slug } = params;
+const Page = async ({ params }: { params: { slug: string } }) => {
     const navItems: INaviItem[] = [
         { title: '0-9', href: '/library/0-9' },
         { title: 'A', href: '/library/A' },
@@ -35,6 +38,15 @@ const Page = ({ params }: { params: { slug: string } }) => {
         { title: 'Y', href: '/library/Y' },
         { title: 'Z', href: '/library/Z' },
     ];
+
+    let libraryData: IModelPaginate<ILibraryRowData[]>;
+    try {
+        libraryData = await GetMovieInLibrary(params.slug, 1);
+    } catch (error) {
+        console.error('Error fetching home page data:', error);
+        // Có thể trả về trang lỗi hoặc thông báo
+        return { success: false, data: [], pageNumber: 1, pageCount: 1 };
+    }
     return (
         <Box>
             <Typography
@@ -53,8 +65,8 @@ const Page = ({ params }: { params: { slug: string } }) => {
             >
                 Thư viện Anime
             </Typography>
-            <LibraryNav items={navItems} route={slug} />
-            <LibraryTable />
+            <LibraryNav items={navItems} route={params.slug} />
+            <LibraryContainer libraryData={libraryData} slug={params.slug} />
         </Box>
     );
 };

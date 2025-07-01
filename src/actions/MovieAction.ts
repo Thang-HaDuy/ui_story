@@ -3,6 +3,7 @@
 import { IAnimeUpdateItem } from '@/components/home/anime-update/AnimeUpdateItem';
 import { IStep } from '@/components/home/slide-anime-top/SlideItem';
 import { IUpcommingItem } from '@/components/home/upcomming-anime/UpcommingItem';
+import { ILibraryRowData } from '@/components/library/library.row';
 import { ITutorialStep } from '@/components/ui/navigation/items/list-movie-top/MovieItem';
 import { INewAnime } from '@/components/ui/sidebar/item/anime-new-update/ItemAnime';
 import { API_BASE_URL, API_ENDPOINTS } from '@/constants/api';
@@ -60,7 +61,10 @@ export const getNominatedAnime = async (): Promise<IAnimeUpdateItem[]> => {
     try {
         const res = await sendRequest<IBackendRes<IAnimeUpdateItem[]>>({
             method: 'GET',
-            url: `${API_BASE_URL}${API_ENDPOINTS.NOMINATED_ANIME}?filter=most_viewed_today`,
+            url: `${API_BASE_URL}${API_ENDPOINTS.NOMINATED_ANIME}`,
+            queryParams: {
+                filter: 'most_viewed_today',
+            },
         });
         return res.data;
     } catch (e) {
@@ -77,5 +81,22 @@ export const getMinimalAnimeUpdates = async (): Promise<INewAnime[]> => {
         return res.data;
     } catch (e) {
         return [];
+    }
+};
+
+export const GetMovieInLibrary = async (filter: string, page: number): Promise<IModelPaginate<ILibraryRowData[]>> => {
+    try {
+        const res = await sendRequest<IModelPaginate<ILibraryRowData[]>>({
+            method: 'GET',
+            url: `${API_BASE_URL}${API_ENDPOINTS.MOVIE_IN_LIBRARY}`,
+            queryParams: {
+                filter: filter,
+                page: page,
+            },
+        });
+        return res;
+    } catch (e) {
+        console.log(e);
+        return {} as IModelPaginate<ILibraryRowData[]>;
     }
 };

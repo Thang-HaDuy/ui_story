@@ -36,7 +36,10 @@ const NominatedAnime = (prop: INominatedAnime) => {
             try {
                 const res = await sendRequest<IBackendRes<IAnimeUpdateItem[]>>({
                     method: 'GET',
-                    url: `${API_BASE_URL}${API_ENDPOINTS.NOMINATED_ANIME}?filter=${filter}`,
+                    url: `${API_BASE_URL}${API_ENDPOINTS.NOMINATED_ANIME}`,
+                    queryParams: {
+                        filter: filter,
+                    },
                 });
                 setMovies(res.data);
             } catch (err) {

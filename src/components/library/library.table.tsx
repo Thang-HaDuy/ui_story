@@ -1,11 +1,17 @@
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
-import LibraryRow from './library.row';
+import LibraryRow, { ILibraryRowData } from './library.row';
 
-const LibraryTable = () => {
+export interface ILibraryTableProp {
+    datas: ILibraryRowData[];
+    pageNumber: number;
+}
+
+const LibraryTable = (prop: ILibraryTableProp) => {
+    const { datas, pageNumber } = prop;
     return (
-        <Box>
+        <Box sx={{ marginBottom: '20px' }}>
             <Grid
                 container
                 sx={{
@@ -103,13 +109,9 @@ const LibraryTable = () => {
                     Đánh giá
                 </Grid>
             </Grid>
-            <LibraryRow />
-            <LibraryRow />
-            <LibraryRow />
-            <LibraryRow />
-            <LibraryRow />
-            <LibraryRow />
-            <LibraryRow />
+            {datas.map((e, i) => {
+                return <LibraryRow data={e} index={i + (pageNumber - 1) * 30} />;
+            })}
         </Box>
     );
 };
