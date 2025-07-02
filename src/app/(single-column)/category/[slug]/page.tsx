@@ -1,11 +1,18 @@
-import CategoryTable from '@/components/category/category.table';
-import AppPagination from '@/components/ui/shared/Pagination';
+import { GetMovieByCategory } from '@/actions/MovieAction';
+import CategoryContainer from '@/components/category/category.container';
+import { IAnimeUpdateItem } from '@/components/home/anime-update/AnimeUpdateItem';
 
-const Page = ({ params }: { params: { slug: string } }) => {
+const Page = async ({ params }: { params: { slug: string } }) => {
+    let categoryData: IModelPaginate<IAnimeUpdateItem[]>;
+    try {
+        categoryData = await GetMovieByCategory(params.slug);
+    } catch (error) {
+        console.error('Error fetching home page data:', error);
+        return {};
+    }
     return (
         <>
-            <CategoryTable />
-            <AppPagination />
+            <CategoryContainer categoryData={categoryData} slug={params.slug} />
         </>
     );
 };

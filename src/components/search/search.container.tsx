@@ -51,7 +51,7 @@ const SearchContainer = (prop: ILibraryContainerProp) => {
                         marginBottom: '20px',
                     }}
                 >
-                    Két Quả Tìm Kiếm {slug}
+                    Kết Quả Tìm Kiếm {slug}
                 </Button>
                 <SearchTable items={data.data} />
                 <AppPagination

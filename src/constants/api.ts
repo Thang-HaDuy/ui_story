@@ -11,6 +11,7 @@ export const API_ENDPOINTS = {
     COMFIRM_EMAIL: 'Api/AccountApi/ConfirmEmail',
     FORGOT_PASSWORD: 'Api/AccountApi/ForgotPassword',
     RESET_PASSWORD: 'Api/AccountApi/ResetPassword',
+    MOVIE_BY_CATEGORY: 'Api/MovieApi/MovieByCategory',
     LIST_MOVIE_TOP: 'Api/MovieApi/MovieTopRating',
     SLIDE_ANIME_TOP: 'Api/MovieApi/SlideAnimeTop',
     NEW_ANIME_UPDATE: 'Api/MovieApi/NewAnimeUpdate',

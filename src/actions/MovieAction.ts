@@ -40,6 +40,21 @@ export const SearchMovie = async (slug: string): Promise<IModelPaginate<IAnimeUp
     }
 };
 
+export const GetMovieByCategory = async (slug: string): Promise<IModelPaginate<IAnimeUpdateItem[]>> => {
+    try {
+        const res = await sendRequest<IModelPaginate<IAnimeUpdateItem[]>>({
+            method: 'GET',
+            url: `${API_BASE_URL}${API_ENDPOINTS.MOVIE_BY_CATEGORY}`,
+            queryParams: {
+                query: slug,
+            },
+        });
+        return res;
+    } catch (e) {
+        return {} as IModelPaginate<IAnimeUpdateItem[]>;
+    }
+};
+
 export const getSlideAnimeTop = async (): Promise<IStep[]> => {
     try {
         const res = await sendRequest<IBackendRes<IStep[]>>({
