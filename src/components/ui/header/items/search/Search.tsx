@@ -9,12 +9,14 @@ import InputAdornment from '@mui/material/InputAdornment';
 import SearchIcon from '@mui/icons-material/Search';
 import useDebounce from '@/components/ui/header/items/search/component/useDebounce';
 import { API_BASE_URL, API_ENDPOINTS } from '@/constants/api';
+import { useRouter } from 'next/navigation';
+import ROUTES from '@/constants/routes';
 
 const Search = () => {
     const [openSuggest, setOpenSuggest] = React.useState(false);
     const [searchValue, setSearchValue] = React.useState('');
     const [searchResult, setSearchResult] = React.useState<ISuggest[]>([]);
-
+    const router = useRouter();
     const debouncedValue = useDebounce(searchValue, 500);
 
     React.useEffect(() => {
@@ -25,7 +27,7 @@ const Search = () => {
 
         const fetchApi = async () => {
             try {
-                const response = await fetch(`${API_BASE_URL}${API_ENDPOINTS.SEARCH}${debouncedValue}`);
+                const response = await fetch(`${API_BASE_URL}${API_ENDPOINTS.SEARCH}?query=${debouncedValue}`);
                 if (response.status === 200) {
                     const result: ISuggest[] = await response.json();
                     setSearchResult(result);
@@ -40,7 +42,6 @@ const Search = () => {
 
         fetchApi();
     }, [debouncedValue]);
-
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const searchValue = e.target.value;
         if (!searchValue.startsWith(' ')) {
@@ -64,6 +65,7 @@ const Search = () => {
 
     const handleOnSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
+        router.push(ROUTES.SEARCH + '/' + debouncedValue);
     };
 
     return (

@@ -14,7 +14,6 @@ export interface ILibraryContainerProp {
 const LibraryContainer = (prop: ILibraryContainerProp) => {
     const { libraryData, slug } = prop;
     const [data, setData] = useState(libraryData);
-    console.log(libraryData, data);
 
     const handlePageChange = async (page: number) => {
         try {

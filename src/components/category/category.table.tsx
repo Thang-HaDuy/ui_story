@@ -4,25 +4,7 @@ import { Grid } from '@mui/material';
 import AnimeUpdateItem, { IAnimeUpdateItem } from '@/components/home/anime-update/AnimeUpdateItem';
 
 const CategoryTable = () => {
-    const items: IAnimeUpdateItem[] = [
-        {
-            img: '/name2.jpg',
-            views: '650,345',
-            itemHover: {
-                name: 'Isekai Suicide Squad',
-                detail: 'Fable là một tay sát thủ lão luyện giỏi nhất trong lĩnh vực của mình. Tuy nhiên, anh ta đã giết rất nhiều người hai po grafile',
-                author: ' asread., studio MOTHER ',
-                categories: 'Harem, Fantasy, Adventure, Magic',
-                performer: 'Harem, Fantasy, Adventure, Magic',
-                info: {
-                    rate: 3.2,
-                    createdAt: '2024-3-5',
-                    quality: 'HD',
-                    episode: '3/6',
-                },
-            },
-        },
-    ];
+    const items: IAnimeUpdateItem[] = [];
 
     return (
         <Grid container sx={{ marginX: '-10px', width: 'auto' }}>

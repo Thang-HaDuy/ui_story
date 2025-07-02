@@ -3,7 +3,7 @@
 export const API_BASE_URL = process.env.NEXT_PUBLIC_BASE_API;
 
 export const API_ENDPOINTS = {
-    SEARCH: 'Api/MovieApi/search?query=',
+    SEARCH: 'Api/MovieApi/search',
     LOGIN: 'Api/AccountApi/Login',
     REGISTER: 'Api/AccountApi/Register',
     USER_INFO: 'Api/AccountApi/UserDetail',

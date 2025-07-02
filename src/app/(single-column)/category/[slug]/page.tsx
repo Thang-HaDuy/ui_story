@@ -4,7 +4,6 @@ import AppPagination from '@/components/ui/shared/Pagination';
 const Page = ({ params }: { params: { slug: string } }) => {
     return (
         <>
-            <AppPagination />
             <CategoryTable />
             <AppPagination />
         </>
